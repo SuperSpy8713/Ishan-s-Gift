@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Metadata for the HTML document -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Title of the HTML document -->
+    <title>Ishan's Gift</title>
+
+    <!-- Internal styles for styling the page -->
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #ffae00;
+        }
+
+        .container {
+            text-align: center;
+            padding: 50px;
+        }
+
+        .search-form {
+            max-width: 400px;
+            margin: 0 auto;
+        }
+
+        .search-input,
+        .search-button {
+            width: 70%;
+            padding: 10px;
+            font-size: 16px;
+            box-sizing: border-box; /* Ensure padding doesn't increase element width */
+        }
+
+        .search-button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s; /* Smooth transition for background color change */
+            position: relative;
+            top: 10px;
+          }
+
+        .search-button:hover {
+            background-color: #45a049;
+        }
+
+        .hidden {
+            display: none;
+        }
+    </style>
+
+    <!-- JavaScript code for handling password checks and page transitions -->
+    <script>
+        // Object to store passwords for each page
+        var passwords = {
+            page1: "happy birthday",
+            page2: "in the cipher of existence find the harmony of encrypted truths",
+            page3: "password3"
+        };
+
+        // Function to check the password and show the next page
+        function checkPassword(pageNumber) {
+            var enteredPassword = document.getElementById('password' + pageNumber).value;
+            var correctPassword = passwords['page' + pageNumber]; // Retrieve password for the current page
+
+            if (enteredPassword === correctPassword) {
+                showPage(pageNumber);
+            } else {
+                alert("Incorrect password. Please try again. Dumbass!");
+            }
+        }
+
+        // Function to show the specified page and hide the current page
+        function showPage(pageNumber) {
+            document.getElementById('page' + pageNumber).classList.add('hidden');
+            document.getElementById('page' + (pageNumber + 1)).classList.remove('hidden');
+        }
+    </script>
+</head>
+<body>
+
+    <!-- First page content -->
+    <div class="container" id="page1">
+        <h1>Welcome to your first challenge Ishan!</h1>
+        <p>You must find enter the password to advance!</p>
+        <p>HINT: Look at unusual patterns in the letter!</p>
+        
+        
+        <!-- Search form for the first page -->
+        <div class="search-form">
+            <!-- onSubmit event triggers the checkPassword function -->
+            <form onsubmit="event.preventDefault(); checkPassword(1);">
+                <label for="password1">Enter Password:</label>
+                <!-- Password input field -->
+                <input type="password" id="password1" name="password" required>
+                <br>
+                <!-- Submit button triggers the checkPassword function -->
+                <button type="submit" class="search-button">Submit</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Second page content (initially hidden) -->
+    <div class="container hidden" id="page2">
+        <h1>Looks like the first clue was not hard enough!</h1>
+        <p>Decode the following code to advance to your prize!</p>
+        <p>itnh eicp eorf eixs tnec fnid tehh amro noyf ecnr ytpe drtu tsh</p>
+        <p>HINT: Think of a square with 4 boxes.When the answer had been found. </p>
+        
+        <!-- Search form for the second page -->
+        <div class="search-form">
+            <!-- onSubmit event triggers the checkPassword function -->
+            <form onsubmit="event.preventDefault(); checkPassword(2);">
+                <label for="password2">Enter Password:</label>
+                <!-- Password input field -->
+                <input type="password" id="password2" name="password" required>
+                <br>
+                <!-- Submit button triggers the checkPassword function -->
+                <button type="submit" class="search-button">Submit</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Third page content (initially hidden) -->
+    <div class="container hidden" id="page3">
+        <h1>Congratulations! You have earned a $50 dollar steam giftcard! But can you decode it...</h1>
+        <p>QGPV2CNKRVAPJEE</p>
+        <p>HINT: use the knowledge of the previous code to solve this one!</p>
+    </div>
+
+</body>
+</html>
